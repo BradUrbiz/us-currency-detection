@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask, render_template, request
 import roboflow
 import os
 import tempfile
@@ -64,3 +64,6 @@ def upload_file():
             os.remove(temp_path)
 
     return render_template('index.html', predictions=pred_text)
+
+if __name__ == "__main__":
+    app.run()
