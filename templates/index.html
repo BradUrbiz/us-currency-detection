@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>US Currency Detection</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+    form {
+        text-align: center;;
+    }
+    h4 {
+        text-align: center;
+    }
+    h5 {
+        text-align: center;
+    }
+    #predictions {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <h1>US Currency Detection</h1>
+   <h5>
+  Created by Brad Urbiztondo, 
+  <a href="https://github.com/BradUrbiz/us-currency-detection" target="_blank">
+    https://github.com/BradUrbiz/us-currency-detection
+  </a>, 2025
+</h5>
+    <p>This project is focused on detecting and recognizing US currency denominations using computer vision techniques. The goal is to accurately identify different bills and coins in images.</p>
+    <br>
+    <h4>Upload one image at a time. Can select file or drag and drop DIRECTLY on top of "Choose File":</h4>
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" id="fileInput" name="image" accept="image/*">
+  <button type="submit">Done</button>
+  <button type="button" id="clearBtn">Clear</button>
+</form>
+
+<div id="predictions">
+    {% if predictions %}
+        Predictions: {{ predictions }}
+    {% endif %}
+</div>
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const clearBtn = document.getElementById('clearBtn');
+
+    fileInput.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileInput.classList.add('hover');
+    });
+
+    fileInput.addEventListener('dragleave', () => {
+        fileInput.classList.remove('hover');
+    });
+
+    fileInput.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileInput.classList.remove('hover');
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            fileInput.files = files; 
+        }
+    });
+
+    clearBtn.addEventListener('click', () => {
+        fileInput.value = "";
+    });
+</script>
+
+</body>
+</html>
