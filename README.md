@@ -3,6 +3,8 @@
 
 This project is designed to detect the denomination and quantity of U.S. CASH currency in an image. It supports PNG, JPG, and JPEG file formats.
 
+
+
 Please do not upload any sensitive or malicious files.
 ## Installation
 
@@ -18,6 +20,9 @@ Disclaimer: After accessing link you must wait a bit for site to boot up. This i
 Using Roboflow, a platform that simplifies the entire computer vision workflow, I created a dataset consisting of over 1000 images. Afterwards I trained the model and made it accessible to online here: https://app.roboflow.com/clashbot-artum/dollar-classify-vq2yo/visualize/2
 
 Once model was complete, I utilized HTML to create a simple frontend. It consisted just of a page that outlined my project and allowed for file uploads. For the backend I used Flask to temporarily save the image and send it my own Roboflow model. Lastly, I pushed this all to github and deployed it with Onrender to get my finished product.
+
+#### How accurate is this model?
+My model has a mAP@50 of 94.0% Where mAP@50 is equal to the mean of the Average Precision metric across all classes in a model at a 50% IoU threshold. And has a precision of 90.7%. Which measures how often a model's predictions are correct. Lastly, it has a recall of 88.0%. Where recall measures what percentage of relevant labels were successfully identified. 
 
 #### For the Youth Coders Hack 2025, how does this relate to the topic of "Social Good"?
 
